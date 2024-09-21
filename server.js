@@ -19,5 +19,8 @@ app.use('/api/auth', require('./routes/auth')); // Existing auth routes
 app.use('/api/question', require('./routes/questionPaper')); // Question paper routes
 
 // Start Server
+// Start Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`🚀 Server is running smoothly on port ${PORT} 🚀`);
+});
