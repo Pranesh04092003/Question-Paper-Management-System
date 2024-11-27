@@ -8,8 +8,8 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors());  // Enable CORS for all routes
-app.use(express.json());  // Enable parsing JSON bodies
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json()); // Enable parsing JSON bodies
 
 // Serve static files from the uploads directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -18,7 +18,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', require('./routes/auth')); // Existing auth routes
 app.use('/api/question', require('./routes/questionPaper')); // Question paper routes
 
-// Start Server
+// Root Route to Display a Message
+app.get('/', (req, res) => {
+    res.send('🚀 Server is running smoothly 🚀');
+});
+
 // Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
